@@ -68,12 +68,12 @@ const checkPrice = async () => {
     const result = await fetch(urlProxy);
     const json = (await result.json()) as BinancePrice;
     if (!json || !json.price) {
-      console.error('ERROR proxy URL');
+      console.error(`ERROR proxy URL ${urlProxy}`);
       exitApp();
     }
     price = Number(json.price);
   } catch (err) {
-    console.error('ERROR proxy URL');
+    console.error(`ERROR proxy URL ${urlProxy}`);
     exitApp();
   }
 
